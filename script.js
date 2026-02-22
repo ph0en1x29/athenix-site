@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initRevealAnimations();
   initShowcaseSection();
   initStatCounters();
-  initContactForm();
   initProcessStepHighlight();
 });
 
@@ -198,42 +197,6 @@ function initStatCounters() {
 // 9. CONTACT FORM
 // ─────────────────────────
 
-function initContactForm() {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    // Collect form data
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-
-    // Validate
-    if (!data.name || !data.email || !data.needs) {
-      alert("Please fill in all required fields.");
-      return;
-    }
-
-    // Log submission (replace with actual API call)
-    console.log("Form submission:", data);
-
-    // Show success message
-    const successMsg = document.getElementById("form-success");
-    successMsg.textContent =
-      "Thank you! We'll be in touch within 24 hours.";
-    successMsg.classList.add("show");
-
-    // Reset form
-    form.reset();
-
-    // Hide message after 5 seconds
-    setTimeout(() => {
-      successMsg.classList.remove("show");
-      successMsg.textContent = "";
-    }, 5000);
-  });
-}
 
 // ─────────────────────────
 // 10. PROCESS STEP HIGHLIGHT
