@@ -11,7 +11,6 @@ gsap.registerPlugin(ScrollTrigger);
 // ─────────────────────────
 
 document.addEventListener("DOMContentLoaded", () => {
-  initLogoAnimation();
   initStickyHeader();
   initMobileMenu();
   initSmoothScroll();
@@ -19,27 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initShowcaseSection();
   initStatCounters();
   initContactForm();
+  initProcessStepHighlight();
 });
-
-// ─────────────────────────
-// 2. LOGO DRAW ANIMATION
-// ─────────────────────────
-
-function initLogoAnimation() {
-  const logoStrokes = document.querySelectorAll(".logo-stroke");
-  logoStrokes.forEach((stroke) => {
-    const length = stroke.getTotalLength();
-    stroke.style.strokeDasharray = length;
-    stroke.style.strokeDashoffset = length;
-
-    gsap.to(stroke, {
-      strokeDashoffset: 0,
-      duration: 1.5,
-      ease: "power2.out",
-      delay: 0.3,
-    });
-  });
-}
 
 // ─────────────────────────
 // 3. STICKY HEADER
@@ -113,10 +93,9 @@ function initSmoothScroll() {
       e.preventDefault();
       const target = document.querySelector(href);
       if (target) {
-        gsap.to(window, {
-          scrollTo: target,
-          duration: 0.8,
-          ease: "power2.inOut",
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
         });
       }
     });
@@ -289,8 +268,3 @@ function initProcessStepHighlight() {
     processSteps[0].classList.add("is-active");
   }
 }
-
-// Initialize process on load
-document.addEventListener("DOMContentLoaded", () => {
-  initProcessStepHighlight();
-});
