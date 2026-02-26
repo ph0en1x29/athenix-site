@@ -543,23 +543,23 @@ main {
 
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 24px, 0);
+  transform: translate3d(0, 32px, 0) scale(0.97);
   will-change: opacity, transform;
 }
 
 .reveal.in-view {
-  animation: reveal-up 760ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: reveal-up-3d 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes reveal-up {
+@keyframes reveal-up-3d {
   from {
     opacity: 0;
-    transform: translate3d(0, 24px, 0);
+    transform: translate3d(0, 32px, 0) scale(0.97);
   }
 
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) scale(1);
   }
 }
 
@@ -590,16 +590,29 @@ main {
 
 .card {
   position: relative;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
-  background: var(--color-surface);
-  box-shadow: none;
-  transition: transform 300ms ease, background-color 300ms ease;
+  background: rgba(28, 28, 30, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 
+    0 2px 4px rgba(0,0,0,0.1),
+    0 8px 24px rgba(0,0,0,0.15),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1), 
+              box-shadow 400ms ease,
+              border-color 400ms ease,
+              background-color 300ms ease;
 }
 
 .card:hover {
-  transform: scale(1.02);
-  background: #2c2c2e;
+  transform: translateY(-4px) scale(1.015);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 4px 8px rgba(0,0,0,0.15),
+    0 16px 48px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+  background: rgba(44, 44, 46, 0.7);
 }
 
 .service-card {
@@ -841,10 +854,16 @@ main {
   position: absolute;
   inset: 0 56px 28px 0;
   border-radius: 18px 18px 10px 10px;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   background: linear-gradient(165deg, #20263d 0%, #171b2c 100%);
-  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.6);
+  box-shadow: 
+    0 8px 16px rgba(0,0,0,0.2),
+    0 32px 64px rgba(0,0,0,0.4),
+    0 64px 128px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.05);
   overflow: hidden;
+  transform: perspective(800px) rotateY(-2deg);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .laptop-camera {
@@ -1130,9 +1149,13 @@ main {
   border-radius: 34px;
   background: #11192c;
   border: 8px solid #080b14;
-  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.58);
+  box-shadow: 
+    0 10px 24px rgba(0,0,0,0.3),
+    0 40px 80px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.05);
   overflow: hidden;
-  transform: translate(14%, 8%);
+  transform: translate(14%, 8%) perspective(600px) rotateY(5deg);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .phone-notch {
@@ -1421,8 +1444,13 @@ main {
   margin: 0 auto;
   padding: 2.5rem;
   border-radius: 18px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
+  background: rgba(28, 28, 30, 0.5);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 4px 12px rgba(0,0,0,0.1),
+    0 20px 40px rgba(0,0,0,0.15);
 }
 
 .testimonial-card blockquote p {
@@ -1733,18 +1761,21 @@ main {
 .form-input {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
-  background: var(--color-surface);
+  background: rgba(28, 28, 30, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   color: var(--color-text);
   font-size: 0.9375rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
 .form-input:focus {
   outline: none;
-  border-color: var(--color-blue);
-  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+  border-color: rgba(0, 113, 227, 0.5);
+  background: rgba(28, 28, 30, 0.8);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.12), 0 4px 12px rgba(0,0,0,0.2);
 }
 
 .form-input::placeholder {
@@ -2005,71 +2036,9 @@ main {
     inset 0 1px 0 rgba(255,255,255,0.08);
 }
 
-/* Glass cards - services, process, showcase */
-.card {
-  position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 18px;
-  background: rgba(28, 28, 30, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 
-    0 2px 4px rgba(0,0,0,0.1),
-    0 8px 24px rgba(0,0,0,0.15),
-    inset 0 1px 0 rgba(255,255,255,0.04);
-  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1), 
-              box-shadow 400ms ease,
-              border-color 400ms ease,
-              background-color 300ms ease;
-}
-
-.card:hover {
-  transform: translateY(-4px) scale(1.015);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 
-    0 4px 8px rgba(0,0,0,0.15),
-    0 16px 48px rgba(0,0,0,0.2),
-    inset 0 1px 0 rgba(255,255,255,0.06);
-  background: rgba(44, 44, 46, 0.7);
-}
-
-/* Depth shadows on device mockups */
-.laptop-mockup {
-  position: absolute;
-  inset: 0 56px 28px 0;
-  border-radius: 18px 18px 10px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: linear-gradient(165deg, #20263d 0%, #171b2c 100%);
-  box-shadow: 
-    0 8px 16px rgba(0,0,0,0.2),
-    0 32px 64px rgba(0,0,0,0.4),
-    0 64px 128px rgba(0,0,0,0.3),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-  overflow: hidden;
-  transform: perspective(800px) rotateY(-2deg);
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
+/* 3D depth interactions for device mockups */
 .device-pin-wrap:hover .laptop-mockup {
   transform: perspective(800px) rotateY(0deg);
-}
-
-.phone-mockup {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  width: min(42%, 228px);
-  aspect-ratio: 9 / 19;
-  border-radius: 34px;
-  background: #11192c;
-  border: 8px solid #080b14;
-  box-shadow: 
-    0 10px 24px rgba(0,0,0,0.3),
-    0 40px 80px rgba(0,0,0,0.4),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-  overflow: hidden;
-  transform: translate(14%, 8%) perspective(600px) rotateY(5deg);
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .device-pin-wrap:hover .phone-mockup {
@@ -2093,20 +2062,7 @@ main {
   background-clip: text;
 }
 
-/* Testimonial card depth */
-.testimonial-card {
-  max-width: 42rem;
-  margin: 0 auto;
-  padding: 2.5rem;
-  border-radius: 18px;
-  background: rgba(28, 28, 30, 0.5);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 4px 12px rgba(0,0,0,0.1),
-    0 20px 40px rgba(0,0,0,0.15);
-}
+/* testimonial depth applied to original .testimonial-card above */
 
 /* Ambient section glow orbs */
 #services::after {
@@ -2122,68 +2078,18 @@ main {
   pointer-events: none;
 }
 
-.showcase::after {
-  content: "";
-  position: absolute;
-  top: 20%;
-  right: -8%;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(90, 176, 255, 0.05) 0%, transparent 70%);
-  filter: blur(60px);
-  pointer-events: none;
-}
+/* showcase ambient glow handled via ::before accent line */
 
-/* Smooth reveal with scale */
-.reveal {
-  opacity: 0;
-  transform: translate3d(0, 32px, 0) scale(0.97);
-  will-change: opacity, transform;
-}
+/* reveal-up-3d defined in original .reveal block above */
 
-.reveal.in-view {
-  animation: reveal-up-3d 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-@keyframes reveal-up-3d {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 32px, 0) scale(0.97);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-}
-
-/* Contact form inputs — glass */
-.form-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  background: rgba(28, 28, 30, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: var(--color-text);
-  font-size: 0.9375rem;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-
-.form-input:focus {
-  outline: none;
-  border-color: rgba(0, 113, 227, 0.5);
-  background: rgba(28, 28, 30, 0.8);
-  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.12), 0 4px 12px rgba(0,0,0,0.2);
-}
+/* form-input glass styles merged into original .form-input above */
 
 /* Noise texture overlay for premium feel */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: 1;
   pointer-events: none;
   opacity: 0.015;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
