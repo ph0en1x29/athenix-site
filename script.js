@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initStatCounters();
   initProcessStepHighlight();
   initParallax();
+  initScrollDepth();
 });
 
 // ─────────────────────────
@@ -32,7 +33,36 @@ function initHeroAnimation() {
   tl.from('.hero h1', { y: 40, opacity: 0, duration: 1, delay: 0.2 })
     .from('.hero-subtitle', { y: 30, opacity: 0, duration: 0.8 }, '-=0.5')
     .from('.hero-actions', { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
-    .from('.hero-visual', { y: 60, opacity: 0, duration: 1, ease: 'power2.out' }, '-=0.3');
+    .from('.hero-visual', { y: 60, opacity: 0, scale: 0.95, duration: 1.2, ease: 'power2.out' }, '-=0.3');
+
+  // Mouse-follow 3D tilt on hero card
+  const heroCard = document.querySelector('.hero-ui-card');
+  if (!heroCard) return;
+
+  const heroVisual = document.querySelector('.hero-visual');
+  
+  heroVisual.addEventListener('mousemove', (e) => {
+    const rect = heroVisual.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    
+    gsap.to(heroCard, {
+      rotateX: -y * 8,
+      rotateY: x * 8,
+      duration: 0.5,
+      ease: 'power2.out',
+      overwrite: 'auto',
+    });
+  });
+  
+  heroVisual.addEventListener('mouseleave', () => {
+    gsap.to(heroCard, {
+      rotateX: 2,
+      rotateY: 0,
+      duration: 0.8,
+      ease: 'elastic.out(1, 0.5)',
+    });
+  });
 }
 
 // ─────────────────────────
@@ -303,20 +333,23 @@ function initProcessStepHighlight() {
 // ─────────────────────────
 
 function initParallax() {
+  // Service cards: stagger from bottom with scale
   gsap.utils.toArray('.service-card').forEach((card, i) => {
     gsap.from(card, {
       scrollTrigger: {
         trigger: card,
-        start: 'top 85%',
-        end: 'top 40%',
+        start: 'top 90%',
+        end: 'top 50%',
         scrub: 1,
       },
-      y: 30 + (i * 10),
-      opacity: 0.5,
+      y: 40 + (i * 15),
+      scale: 0.92,
+      opacity: 0,
+      rotateX: 5,
     });
   });
   
-  // Stagger process steps
+  // Process steps: slide in from right with rotation
   gsap.utils.toArray('.process-step').forEach((step, i) => {
     gsap.from(step, {
       scrollTrigger: {
@@ -324,10 +357,124 @@ function initParallax() {
         start: 'top 85%',
         toggleActions: 'play none none reverse',
       },
-      x: 30,
+      x: 40,
+      opacity: 0,
+      rotateY: -5,
+      duration: 0.6,
+      delay: i * 0.1,
+      ease: 'power3.out',
+    });
+  });
+  
+  // Stats: count up + scale pop
+  gsap.utils.toArray('.stat-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      scale: 0.8,
+      opacity: 0,
+      y: 30,
+      duration: 0.7,
+      delay: i * 0.15,
+      ease: 'back.out(1.5)',
+    });
+  });
+  
+  // Showcase device mockups: subtle float on scroll
+  gsap.utils.toArray('.device-stage').forEach((stage) => {
+    gsap.to(stage, {
+      scrollTrigger: {
+        trigger: stage,
+        start: 'top 80%',
+        end: 'bottom 20%',
+        scrub: 2,
+      },
+      y: -20,
+      ease: 'none',
+    });
+  });
+
+  // Value cards: stagger from bottom
+  gsap.utils.toArray('.value-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      y: 30,
       opacity: 0,
       duration: 0.5,
-      delay: i * 0.1,
+      delay: i * 0.12,
+    });
+  });
+
+  // Testimonial: fade + scale
+  const testimonial = document.querySelector('.testimonial-card');
+  if (testimonial) {
+    gsap.from(testimonial, {
+      scrollTrigger: {
+        trigger: testimonial,
+        start: 'top 80%',
+        toggleActions: 'play none none none',
+      },
+      scale: 0.9,
+      opacity: 0,
+      y: 40,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+  }
+}
+
+// ─────────────────────────
+// 12. SCROLL DEPTH EFFECTS
+// ─────────────────────────
+
+function initScrollDepth() {
+  // Parallax background movement for section glow orbs
+  gsap.to('.hero::after', {
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: 1,
+    },
+    y: 100,
+    ease: 'none',
+  });
+
+  // Section headings: split reveal
+  gsap.utils.toArray('.section-head h2').forEach((h2) => {
+    gsap.from(h2, {
+      scrollTrigger: {
+        trigger: h2,
+        start: 'top 82%',
+        toggleActions: 'play none none none',
+      },
+      y: 20,
+      opacity: 0,
+      scale: 0.96,
+      duration: 0.8,
+      ease: 'power3.out',
+    });
+  });
+  
+  // Eyebrows: slide in
+  gsap.utils.toArray('.eyebrow').forEach((el) => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 85%',
+        toggleActions: 'play none none none',
+      },
+      x: -20,
+      opacity: 0,
+      duration: 0.5,
+      ease: 'power2.out',
     });
   });
 }
