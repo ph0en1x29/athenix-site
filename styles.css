@@ -563,6 +563,12 @@ main {
   }
 }
 
+.hero .reveal {
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal.in-view {

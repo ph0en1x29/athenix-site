@@ -8,3 +8,4 @@
 [2026-02-21 21:47] [Codex] Updated script.js: removed initLogoAnimation, switched smooth scroll to scrollIntoView, and merged process-step init into the primary DOMContentLoaded handler.
 [2026-02-21 21:59] [Codex] Removed dead CSS blocks/selectors from styles.css: .site-glow, .hero-orb variants, .hero-kicker, .scroll-indicator blocks, .logo-lg, and related keyframes; no .logo-core/.logo-stroke/.logo-wing rules found.
 [2026-02-26 14:58] [Sonnet] Updated index.html — replaced inline SVG logos with img tags for new logo.jpg in header and footer
+[2026-02-26 15:04] [Sonnet] Fixed hero visibility in styles.css — added .hero .reveal override. Reverted logo to JPG in index.html. Anonymized client names.
