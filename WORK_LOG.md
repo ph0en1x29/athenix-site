@@ -9,3 +9,4 @@
 [2026-02-21 21:59] [Codex] Removed dead CSS blocks/selectors from styles.css: .site-glow, .hero-orb variants, .hero-kicker, .scroll-indicator blocks, .logo-lg, and related keyframes; no .logo-core/.logo-stroke/.logo-wing rules found.
 [2026-02-26 14:58] [Sonnet] Updated index.html — replaced inline SVG logos with img tags for new logo.jpg in header and footer
 [2026-02-26 15:04] [Sonnet] Fixed hero visibility in styles.css — added .hero .reveal override. Reverted logo to JPG in index.html. Anonymized client names.
+[2026-02-26 15:06] [Sonnet] Anonymized remaining product name references in index.html
