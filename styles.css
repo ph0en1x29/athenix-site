@@ -1164,6 +1164,397 @@ main {
   border-top: 1px solid var(--color-border);
 }
 
+/* === SOCIAL PROOF / CLIENTS === */
+
+.trust-logos {
+  display: flex;
+  justify-content: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  margin-bottom: 3rem;
+}
+
+.trust-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.trust-logo-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.trust-logo-item span {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.trust-logo-item small {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.testimonial-card {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 2.5rem;
+  border-radius: 18px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+}
+
+.testimonial-card blockquote p {
+  font-size: clamp(1.125rem, 2vw, 1.3125rem);
+  line-height: 1.7;
+  color: var(--color-text);
+  font-style: italic;
+  margin-bottom: 1.25rem;
+}
+
+.testimonial-card footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.testimonial-card footer strong {
+  font-size: 0.9375rem;
+  color: var(--color-text);
+  font-style: normal;
+}
+
+.testimonial-card footer span {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+  font-style: normal;
+}
+
+/* === TBA SHOWCASE === */
+
+.showcase-layout-reverse {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.showcase-tba {
+  background: var(--color-surface);
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.schedule-slot {
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 10px;
+  text-align: center;
+  transition: background 0.2s ease;
+}
+
+.schedule-slot.filled {
+  background: rgba(41, 151, 255, 0.1);
+  border-color: rgba(41, 151, 255, 0.25);
+}
+
+.schedule-slot span {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.schedule-slot small {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+.schedule-slot.filled small {
+  color: var(--color-blue);
+}
+
+.student-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.student-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.student-row b {
+  font-size: 12px;
+  color: var(--color-text);
+}
+
+.student-row small {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  text-align: right;
+}
+
+.progress-bar {
+  display: block;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.progress-bar i {
+  display: block;
+  height: 100%;
+  width: var(--fill, 50%);
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0071e3, #5ab0ff);
+  transition: width 0.8s ease;
+}
+
+.venue-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.venue-card {
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 14px;
+  text-align: center;
+}
+
+.venue-card strong {
+  display: block;
+  font-size: 12px;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.venue-card span {
+  display: block;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.venue-card small {
+  display: block;
+  font-size: 10px;
+  color: var(--color-blue);
+  margin-top: 4px;
+}
+
+/* === PHONE MOCKUP CONTENT === */
+
+.phone-screen-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 12px 0;
+  background: linear-gradient(165deg, #0f1526 0%, #18233f 100%);
+}
+
+.phone-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 12px;
+}
+
+.phone-header-bar small {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.phone-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #30d158;
+  box-shadow: 0 0 6px rgba(48, 209, 88, 0.5);
+}
+
+.phone-job-card {
+  padding: 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 8px;
+}
+
+.phone-job-card strong {
+  display: block;
+  font-size: 9px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.phone-job-card p {
+  font-size: 11px;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.phone-job-status {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--color-blue);
+  background: rgba(41, 151, 255, 0.16);
+  border: 1px solid rgba(41, 151, 255, 0.28);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+.phone-job-status.upcoming {
+  color: var(--color-text-muted);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.phone-nav-bar {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 16px;
+}
+
+/* === SHOWCASE AUTO-CYCLE PROGRESS === */
+
+.showcase-step .step-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--color-blue);
+  border-radius: 0 0 18px 18px;
+  width: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.showcase-step.is-active .step-progress {
+  opacity: 1;
+  animation: step-fill 5s linear forwards;
+}
+
+@keyframes step-fill {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* === HERO GRADIENT ANIMATION === */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  z-index: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(0, 113, 227, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 70% 50%, rgba(90, 176, 255, 0.1) 0%, transparent 50%);
+  animation: hero-gradient-shift 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes hero-gradient-shift {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(-5%, 3%) scale(1.1); opacity: 0.8; }
+  100% { transform: translate(5%, -3%) scale(1.05); opacity: 0.6; }
+}
+
+/* === SECTION TRANSITIONS (gradient shifts between sections) === */
+
+#services {
+  background: linear-gradient(180deg, var(--color-dark) 0%, rgba(15, 15, 20, 1) 100%);
+}
+
+#clients {
+  background: linear-gradient(180deg, rgba(15, 15, 20, 1) 0%, var(--color-dark) 100%);
+}
+
+#why {
+  background: linear-gradient(180deg, var(--color-dark) 0%, rgba(10, 10, 18, 1) 50%, var(--color-dark) 100%);
+}
+
+/* === CONTACT FORM === */
+
+.contact-form {
+  max-width: 28rem;
+  margin: 0 auto 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-note {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin-top: 0.5rem;
+}
+
+.form-success {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background: rgba(48, 209, 88, 0.1);
+  border: 1px solid rgba(48, 209, 88, 0.3);
+  color: #30d158;
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .site-header {
     padding: 0 20px;
@@ -1253,7 +1644,27 @@ main {
     display: none;
   }
 
-  
+  .trust-logos {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .showcase-layout-reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .schedule-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .venue-cards {
+    grid-template-columns: 1fr;
+  }
 
   .footer-layout {
     grid-template-columns: 1fr;

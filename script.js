@@ -14,11 +14,26 @@ document.addEventListener("DOMContentLoaded", () => {
   initStickyHeader();
   initMobileMenu();
   initSmoothScroll();
+  initHeroAnimation();
   initRevealAnimations();
   initShowcaseSection();
   initStatCounters();
   initProcessStepHighlight();
+  initParallax();
 });
+
+// ─────────────────────────
+// 2. HERO ANIMATION
+// ─────────────────────────
+
+function initHeroAnimation() {
+  const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  
+  tl.from('.hero h1', { y: 40, opacity: 0, duration: 1, delay: 0.2 })
+    .from('.hero-subtitle', { y: 30, opacity: 0, duration: 0.8 }, '-=0.5')
+    .from('.hero-actions', { y: 20, opacity: 0, duration: 0.6 }, '-=0.4')
+    .from('.hero-visual', { y: 60, opacity: 0, duration: 1, ease: 'power2.out' }, '-=0.3');
+}
 
 // ─────────────────────────
 // 3. STICKY HEADER
@@ -109,6 +124,8 @@ function initRevealAnimations() {
   const reveals = document.querySelectorAll(".reveal");
 
   reveals.forEach((el) => {
+    if (el.closest('.hero')) return; // Skip hero elements, handled by GSAP
+    
     ScrollTrigger.create({
       trigger: el,
       start: "top 80%",
@@ -124,36 +141,71 @@ function initRevealAnimations() {
 // ─────────────────────────
 
 function initShowcaseSection() {
-  const showcaseSteps = document.querySelectorAll(".showcase-step");
-  const deviceScreens = document.querySelectorAll(".device-screen");
-
-  if (showcaseSteps.length === 0) return;
-
-  showcaseSteps.forEach((step) => {
-    step.addEventListener("click", () => {
-      const screenIndex = step.getAttribute("data-screen");
-
-      // Update active state
-      showcaseSteps.forEach((s) => s.classList.remove("is-active"));
-      deviceScreens.forEach((s) => s.classList.remove("is-active"));
-
-      step.classList.add("is-active");
-      const activeScreen = document.querySelector(
-        `.device-screen[data-screen="${screenIndex}"]`
-      );
-      if (activeScreen) {
-        activeScreen.classList.add("is-active");
-      }
+  // Handle both showcase sections
+  const showcaseSections = document.querySelectorAll('.showcase');
+  
+  showcaseSections.forEach(section => {
+    const steps = section.querySelectorAll('.showcase-step');
+    const screens = section.querySelectorAll('.device-screen');
+    
+    if (steps.length === 0) return;
+    
+    // Add progress bar to each step
+    steps.forEach(step => {
+      const progressBar = document.createElement('div');
+      progressBar.className = 'step-progress';
+      step.appendChild(progressBar);
     });
-  });
-
-  // Auto-rotate showcase on scroll
-  ScrollTrigger.create({
-    trigger: ".showcase",
-    start: "center center",
-    onUpdate: (self) => {
-      // Optional: add parallax or scroll-triggered rotation
-    },
+    
+    let currentIndex = 0;
+    let intervalId = null;
+    let isPaused = false;
+    
+    function setActive(index) {
+      steps.forEach(s => s.classList.remove('is-active'));
+      screens.forEach(s => s.classList.remove('is-active'));
+      
+      steps[index].classList.add('is-active');
+      const screenId = steps[index].getAttribute('data-screen');
+      const activeScreen = section.querySelector(`.device-screen[data-screen="${screenId}"]`);
+      if (activeScreen) activeScreen.classList.add('is-active');
+      
+      currentIndex = index;
+    }
+    
+    function nextStep() {
+      if (isPaused) return;
+      const next = (currentIndex + 1) % steps.length;
+      setActive(next);
+    }
+    
+    function startCycle() {
+      if (intervalId) clearInterval(intervalId);
+      intervalId = setInterval(nextStep, 5000);
+    }
+    
+    // Click to select
+    steps.forEach((step, i) => {
+      step.addEventListener('click', () => {
+        setActive(i);
+        // Reset timer on click
+        startCycle();
+      });
+    });
+    
+    // Pause on hover
+    section.addEventListener('mouseenter', () => { isPaused = true; });
+    section.addEventListener('mouseleave', () => { 
+      isPaused = false;
+      startCycle();
+    });
+    
+    // Start cycling when section is visible
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top 80%',
+      onEnter: () => startCycle(),
+    });
   });
 }
 
@@ -197,6 +249,20 @@ function initStatCounters() {
 // 9. CONTACT FORM
 // ─────────────────────────
 
+function handleContactSubmit(event) {
+  event.preventDefault();
+  const form = event.target;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+  
+  console.log('Contact form submission:', data);
+  
+  // Show success message
+  form.innerHTML = '<div class="form-success">✓ Message sent! We\'ll get back to you within 24 hours.</div>';
+}
+
+// Make it global for the inline onsubmit
+window.handleContactSubmit = handleContactSubmit;
 
 // ─────────────────────────
 // 10. PROCESS STEP HIGHLIGHT
@@ -230,4 +296,38 @@ function initProcessStepHighlight() {
   if (processSteps.length > 0) {
     processSteps[0].classList.add("is-active");
   }
+}
+
+// ─────────────────────────
+// 11. PARALLAX ANIMATIONS
+// ─────────────────────────
+
+function initParallax() {
+  gsap.utils.toArray('.service-card').forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: 'top 85%',
+        end: 'top 40%',
+        scrub: 1,
+      },
+      y: 30 + (i * 10),
+      opacity: 0.5,
+    });
+  });
+  
+  // Stagger process steps
+  gsap.utils.toArray('.process-step').forEach((step, i) => {
+    gsap.from(step, {
+      scrollTrigger: {
+        trigger: step,
+        start: 'top 85%',
+        toggleActions: 'play none none reverse',
+      },
+      x: 30,
+      opacity: 0,
+      duration: 0.5,
+      delay: i * 0.1,
+    });
+  });
 }
