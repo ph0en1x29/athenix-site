@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0071e3"/>
+      <stop offset="100%" stop-color="#5ab0ff"/>
+    </linearGradient>
+  </defs>
+  <!-- Clean A lettermark with wing rising from right stroke -->
+  <g transform="translate(100,100)">
+    <!-- Main A shape -->
+    <path d="M0,-72 L-42,62 L-28,62 L-18,32 L18,32 L28,62 L42,62 Z M0,-38 L-12,22 L12,22 Z" 
+          fill="url(#g1)" fill-rule="evenodd"/>
+    <!-- Wing element rising from right stroke -->
+    <path d="M28,20 Q38,-5 52,-28 Q58,-38 68,-42 Q58,-32 50,-18 Q42,-2 36,18 Z" 
+          fill="#5ab0ff" opacity="0.85"/>
+    <path d="M32,5 Q40,-18 54,-38 Q60,-46 72,-52 Q62,-40 52,-24 Q44,-8 38,8 Z" 
+          fill="#0071e3" opacity="0.5"/>
+  </g>
+</svg>

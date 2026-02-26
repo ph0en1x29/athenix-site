@@ -7,3 +7,4 @@
 [2026-02-21 19:19] [Codex] Updated styles.css colors only: root palette vars, global hardcoded color mappings, reduced .site-glow opacities (~40%), and set .hero-orb opacity to 0.15.
 [2026-02-21 21:47] [Codex] Updated script.js: removed initLogoAnimation, switched smooth scroll to scrollIntoView, and merged process-step init into the primary DOMContentLoaded handler.
 [2026-02-21 21:59] [Codex] Removed dead CSS blocks/selectors from styles.css: .site-glow, .hero-orb variants, .hero-kicker, .scroll-indicator blocks, .logo-lg, and related keyframes; no .logo-core/.logo-stroke/.logo-wing rules found.
+[2026-02-26 14:58] [Sonnet] Updated index.html — replaced inline SVG logos with img tags for new logo.jpg in header and footer

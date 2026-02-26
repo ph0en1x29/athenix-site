@@ -1,0 +1,20 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0091ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00b4ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Left leg (lighter grey #3a3a44) -->
+  <polygon points="100,30 45,190 75,190 100,105 88,75" fill="#3a3a44"/>
+  
+  <!-- Right leg (darker grey #2d2d37) -->
+  <polygon points="100,30 155,190 125,190 100,105 112,75" fill="#2d2d37"/>
+  
+  <!-- Dark portion of diagonal slash (left side) -->
+  <polygon points="55,125 85,125 108,95 78,95" fill="#2d2d35"/>
+  
+  <!-- Blue diagonal slash (right side with gradient) -->
+  <polygon points="85,125 175,125 145,95 108,95" fill="url(#blueGradient)"/>
+</svg>
