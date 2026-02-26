@@ -229,53 +229,95 @@
                 <div class="laptop-screen">
                   <div class="screen-stack">
                     <section class="device-screen is-active" data-screen="0" aria-label="Dashboard overview screen">
-                      <div class="screen-header">
-                        <strong>Dashboard Overview</strong>
-                        <span>Live</span>
+                      <div class="screen-header"><strong>Command Center</strong><span>Admin</span></div>
+                      <div class="ft-summary-bar">
+                        <div class="ft-summary-item urgent"><span class="ft-count">3</span><small>Pending Approval</small></div>
+                        <div class="ft-summary-item warn"><span class="ft-count">2</span><small>Unassigned</small></div>
+                        <div class="ft-summary-item"><span class="ft-count">12</span><small>In Progress</small></div>
+                        <div class="ft-summary-item good"><span class="ft-count">48</span><small>Completed</small></div>
                       </div>
-                      <div class="metric-grid">
-                        <div class="metric-card"><span>Jobs Today</span><strong>48</strong></div>
-                        <div class="metric-card"><span>Completion</span><strong>92%</strong></div>
-                        <div class="metric-card"><span>Avg Response</span><strong>18m</strong></div>
-                        <div class="metric-card"><span>Team Online</span><strong>14</strong></div>
+                      <div class="ft-pipeline">
+                        <div class="ft-pipeline-col">
+                          <div class="ft-col-header"><span class="ft-dot" style="background:#f59e0b"></span>Pending <b>5</b></div>
+                          <div class="ft-job-chip">JOB-1042 <small>ACWER HQ</small></div>
+                          <div class="ft-job-chip">JOB-1043 <small>Penang</small></div>
+                        </div>
+                        <div class="ft-pipeline-col">
+                          <div class="ft-col-header"><span class="ft-dot" style="background:#3b82f6"></span>In Progress <b>12</b></div>
+                          <div class="ft-job-chip active">JOB-1038 <small>Amir</small></div>
+                          <div class="ft-job-chip active">JOB-1039 <small>Sarah</small></div>
+                          <div class="ft-job-chip active">JOB-1040 <small>Jin</small></div>
+                        </div>
+                        <div class="ft-pipeline-col">
+                          <div class="ft-col-header"><span class="ft-dot" style="background:#10b981"></span>Done <b>48</b></div>
+                          <div class="ft-job-chip done">JOB-1035 <small>✓ Signed</small></div>
+                          <div class="ft-job-chip done">JOB-1036 <small>✓ Invoiced</small></div>
+                        </div>
                       </div>
                     </section>
 
-                    <section class="device-screen" data-screen="1" aria-label="Job management screen">
-                      <div class="screen-header">
-                        <strong>Job Management</strong>
-                        <span>Today</span>
+                    <section class="device-screen" data-screen="1" aria-label="Job detail screen">
+                      <div class="screen-header"><strong>JOB-1038</strong><span>In Progress</span></div>
+                      <div class="ft-job-detail">
+                        <div class="ft-job-info">
+                          <div><small>Customer</small><b>ACWER Industrial — Shah Alam HQ</b></div>
+                          <div><small>Technician</small><b>Amir Hassan</b></div>
+                          <div><small>Equipment</small><b>Toyota 8FBN25 Forklift #FL-0847</b></div>
+                        </div>
+                        <div class="ft-timer-row">
+                          <div class="ft-timer"><span>⏱</span> 02:34:18</div>
+                          <div class="ft-status-pill">On Site</div>
+                        </div>
+                        <div class="ft-parts-mini">
+                          <div class="ft-section-label">Parts Used</div>
+                          <div class="ft-part-row"><span>Hydraulic Filter HF-201</span><b>×2</b></div>
+                          <div class="ft-part-row"><span>O-Ring Kit OR-15</span><b>×1</b></div>
+                          <div class="ft-part-row"><span>Hydraulic Oil 10W</span><b>3.5L</b></div>
+                        </div>
                       </div>
-                      <ul class="job-list">
-                        <li><b>Install HVAC unit</b><span>Tech: Amir</span><i>In Progress</i></li>
-                        <li><b>Emergency repair</b><span>Tech: Sarah</span><i>Priority</i></li>
-                        <li><b>Site inspection</b><span>Tech: Jin</span><i>Scheduled</i></li>
-                      </ul>
                     </section>
 
                     <section class="device-screen" data-screen="2" aria-label="Inventory tracking screen">
-                      <div class="screen-header">
-                        <strong>Inventory Tracking</strong>
-                        <span>Warehouse + Vans</span>
+                      <div class="screen-header"><strong>Inventory</strong><span>108 items</span></div>
+                      <div class="ft-inv-stats">
+                        <div class="ft-inv-stat"><b>108</b><small>Total</small></div>
+                        <div class="ft-inv-stat warn"><b>7</b><small>Low Stock</small></div>
+                        <div class="ft-inv-stat danger"><b>2</b><small>Out</small></div>
+                        <div class="ft-inv-stat good"><b>RM 284K</b><small>Value</small></div>
                       </div>
-                      <div class="inventory-bars">
-                        <div><span>Pipes</span><i style="--fill:86%"></i></div>
-                        <div><span>Valves</span><i style="--fill:62%"></i></div>
-                        <div><span>Filters</span><i style="--fill:41%"></i></div>
-                        <div><span>Safety Kits</span><i style="--fill:74%"></i></div>
+                      <div class="ft-inv-table">
+                        <div class="ft-inv-header"><span>Part</span><span>Stock</span><span>Status</span></div>
+                        <div class="ft-inv-row"><span>Hydraulic Filter HF-201</span><span>24</span><span class="ft-badge-ok">OK</span></div>
+                        <div class="ft-inv-row"><span>Brake Pad Set BP-100</span><span>3</span><span class="ft-badge-low">Low</span></div>
+                        <div class="ft-inv-row"><span>Forklift Chain FC-48</span><span>0</span><span class="ft-badge-out">Out</span></div>
+                        <div class="ft-inv-row"><span>Hydraulic Oil 10W (L)</span><span>156L</span><span class="ft-badge-ok">OK</span></div>
                       </div>
                     </section>
 
-                    <section class="device-screen" data-screen="3" aria-label="Real-time field updates screen">
-                      <div class="screen-header">
-                        <strong>Real-Time Field Updates</strong>
-                        <span>Map Sync</span>
-                      </div>
-                      <div class="map-surface">
-                        <div class="map-ping ping-a"></div>
-                        <div class="map-ping ping-b"></div>
-                        <div class="map-ping ping-c"></div>
-                        <div class="map-route"></div>
+                    <section class="device-screen" data-screen="3" aria-label="Technician mobile view">
+                      <div class="screen-header"><strong>My Jobs</strong><span>Amir</span></div>
+                      <div class="ft-tech-view">
+                        <div class="ft-tech-current">
+                          <div class="ft-section-label">Current Job</div>
+                          <div class="ft-tech-job active">
+                            <div class="ft-tech-job-head"><b>JOB-1038</b><span>02:34</span></div>
+                            <p>Hydraulic system repair — ACWER HQ</p>
+                            <div class="ft-tech-actions">
+                              <button class="ft-btn-sm">Add Parts</button>
+                              <button class="ft-btn-sm">Take Photo</button>
+                              <button class="ft-btn-sm primary">Complete</button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="ft-section-label">Up Next</div>
+                        <div class="ft-tech-job">
+                          <div class="ft-tech-job-head"><b>JOB-1044</b><span>2:30 PM</span></div>
+                          <p>Forklift inspection — Nilai Branch</p>
+                        </div>
+                        <div class="ft-tech-job">
+                          <div class="ft-tech-job-head"><b>JOB-1045</b><span>4:00 PM</span></div>
+                          <p>Battery replacement — PJ Warehouse</p>
+                        </div>
                       </div>
                     </section>
                   </div>
@@ -288,18 +330,24 @@
                 <div class="phone-screen">
                   <div class="phone-screen-content">
                     <div class="phone-header-bar">
-                      <small>FieldPro Mobile</small>
+                      <small>FieldPro</small>
                       <span class="phone-status-dot"></span>
                     </div>
                     <div class="phone-job-card">
                       <strong>Current Job</strong>
-                      <p>Install HVAC unit — Block A</p>
-                      <div class="phone-job-status">In Progress</div>
+                      <p>JOB-1038 · Hydraulic repair</p>
+                      <div class="phone-timer">⏱ 02:34:18</div>
+                      <div class="phone-job-status">On Site</div>
+                    </div>
+                    <div class="phone-quick-actions">
+                      <span>📷 Photo</span>
+                      <span>🔧 Parts</span>
+                      <span>✅ Done</span>
                     </div>
                     <div class="phone-job-card">
-                      <strong>Next Up</strong>
-                      <p>Emergency repair — Block C</p>
-                      <div class="phone-job-status upcoming">Queued</div>
+                      <strong>Next</strong>
+                      <p>JOB-1044 · Forklift inspection</p>
+                      <div class="phone-job-status upcoming">2:30 PM</div>
                     </div>
                     <div class="phone-nav-bar">
                       <span>🏠</span><span>📋</span><span>📦</span><span>👤</span>
@@ -312,20 +360,20 @@
 
           <div class="showcase-copy">
             <article class="showcase-step card is-active" data-screen="0" data-showcase-group="fieldpro">
-              <h3>Dashboard overview</h3>
-              <p>Leadership gets real-time operational visibility in one glance.</p>
+              <h3>Admin command center</h3>
+              <p>Pipeline view, approval queue, and urgent alerts — leadership sees everything and acts without leaving the dashboard.</p>
             </article>
             <article class="showcase-step card" data-screen="1" data-showcase-group="fieldpro">
-              <h3>Job management</h3>
-              <p>Dispatchers assign, track, and escalate work without call chains.</p>
+              <h3>Live job tracking</h3>
+              <p>Every job shows real-time timer, parts used, equipment details, photos, and digital signatures — from dispatch to invoice.</p>
             </article>
             <article class="showcase-step card" data-screen="2" data-showcase-group="fieldpro">
-              <h3>Inventory tracking</h3>
-              <p>Stock levels stay accurate across warehouse and field teams.</p>
+              <h3>Inventory intelligence</h3>
+              <p>Track 500+ parts across warehouse and vans. Low stock alerts, movement audit trail, and bulk CSV import keep operations accurate.</p>
             </article>
             <article class="showcase-step card" data-screen="3" data-showcase-group="fieldpro">
-              <h3>Real-time field updates</h3>
-              <p>Customers and operations receive live status from every technician.</p>
+              <h3>Technician mobile app</h3>
+              <p>Technicians see their jobs, log parts, capture photos, and get customer signatures — all from their phone in the field.</p>
             </article>
 
             <a class="inline-cta" href="#contact">Want something like this?</a>
@@ -344,16 +392,16 @@
         <div class="showcase-layout showcase-layout-reverse">
           <div class="showcase-copy">
             <article class="showcase-step card is-active" data-screen="tba-0" data-showcase-group="tba">
-              <h3>Session scheduling</h3>
-              <p>Coaches and parents see live court availability, book sessions, and get reminders automatically.</p>
+              <h3>Smart dashboard</h3>
+              <p>Coaches and admins get today's focus — sessions, expected students, pending payments — with a weekly calendar showing session density at a glance.</p>
             </article>
             <article class="showcase-step card" data-screen="tba-1" data-showcase-group="tba">
-              <h3>Student progress</h3>
-              <p>Track attendance, skill assessments, and training milestones for every student.</p>
+              <h3>Session management</h3>
+              <p>View and manage daily sessions across multiple venues and courts. Track status, student counts, and coach assignments in real time.</p>
             </article>
             <article class="showcase-step card" data-screen="tba-2" data-showcase-group="tba">
-              <h3>Multi-venue management</h3>
-              <p>One dashboard across multiple courts and locations with real-time occupancy.</p>
+              <h3>Student tracking</h3>
+              <p>Monitor attendance rates, subscription status, and skill progression for every student. Parents see their children's progress too.</p>
             </article>
             <a class="inline-cta" href="#contact">Want something like this?</a>
           </div>
@@ -363,31 +411,76 @@
                 <div class="laptop-camera"></div>
                 <div class="laptop-screen">
                   <div class="screen-stack">
-                    <section class="device-screen is-active" data-screen="tba-0" aria-label="Session scheduling">
-                      <div class="screen-header"><strong>Session Schedule</strong><span>This Week</span></div>
-                      <div class="schedule-grid">
-                        <div class="schedule-slot filled"><span>Court 1</span><small>9:00 - Beginners</small></div>
-                        <div class="schedule-slot"><span>Court 2</span><small>Available</small></div>
-                        <div class="schedule-slot filled"><span>Court 3</span><small>9:00 - Advanced</small></div>
-                        <div class="schedule-slot filled"><span>Court 1</span><small>11:00 - Private</small></div>
-                        <div class="schedule-slot"><span>Court 2</span><small>Available</small></div>
-                        <div class="schedule-slot filled"><span>Court 3</span><small>11:00 - Junior Elite</small></div>
+                    <section class="device-screen is-active" data-screen="tba-0" aria-label="Dashboard">
+                      <div class="screen-header"><strong>Dashboard</strong><span>Coach</span></div>
+                      <div class="tba-greeting">Good morning, <b>Coach Lee</b></div>
+                      <div class="tba-today-stats">
+                        <div class="tba-stat"><b>6</b><small>Sessions Today</small></div>
+                        <div class="tba-stat"><b>32</b><small>Students Expected</small></div>
+                        <div class="tba-stat accent"><b>3</b><small>Pending Pay</small></div>
+                      </div>
+                      <div class="tba-week-cal">
+                        <div class="tba-day"><small>Mon</small><span>10</span><i class="tba-dot"></i></div>
+                        <div class="tba-day"><small>Tue</small><span>11</span><i class="tba-dot"></i><i class="tba-dot"></i></div>
+                        <div class="tba-day selected"><small>Wed</small><span>12</span><i class="tba-dot"></i><i class="tba-dot"></i><i class="tba-dot"></i></div>
+                        <div class="tba-day"><small>Thu</small><span>13</span><i class="tba-dot"></i></div>
+                        <div class="tba-day"><small>Fri</small><span>14</span><i class="tba-dot"></i><i class="tba-dot"></i></div>
+                        <div class="tba-day dimmed"><small>Sat</small><span>15</span></div>
+                        <div class="tba-day dimmed"><small>Sun</small><span>16</span></div>
                       </div>
                     </section>
-                    <section class="device-screen" data-screen="tba-1" aria-label="Student progress">
-                      <div class="screen-header"><strong>Student Progress</strong><span>This Term</span></div>
-                      <div class="student-list">
-                        <div class="student-row"><b>Ahmad R.</b><span class="progress-bar"><i style="--fill:85%"></i></span><small>Advanced</small></div>
-                        <div class="student-row"><b>Mei Lin C.</b><span class="progress-bar"><i style="--fill:72%"></i></span><small>Intermediate</small></div>
-                        <div class="student-row"><b>Raj K.</b><span class="progress-bar"><i style="--fill:94%"></i></span><small>Elite</small></div>
+                    <section class="device-screen" data-screen="tba-1" aria-label="Sessions">
+                      <div class="screen-header"><strong>Today's Sessions</strong><span>Wed, Feb 12</span></div>
+                      <div class="tba-sessions">
+                        <div class="tba-session-card">
+                          <div class="tba-session-time">9:00 – 10:30 AM</div>
+                          <div class="tba-session-info">
+                            <b>Junior Beginners</b>
+                            <span>Shah Alam HQ — Court 1</span>
+                            <div class="tba-session-meta"><span class="tba-badge blue">Scheduled</span><span>8 students</span></div>
+                          </div>
+                        </div>
+                        <div class="tba-session-card">
+                          <div class="tba-session-time">11:00 – 12:30 PM</div>
+                          <div class="tba-session-info">
+                            <b>Advanced Training</b>
+                            <span>Shah Alam HQ — Court 2 & 3</span>
+                            <div class="tba-session-meta"><span class="tba-badge green">In Progress</span><span>12 students</span></div>
+                          </div>
+                        </div>
+                        <div class="tba-session-card">
+                          <div class="tba-session-time">3:00 – 4:30 PM</div>
+                          <div class="tba-session-info">
+                            <b>Private Coaching</b>
+                            <span>Subang — Court 1</span>
+                            <div class="tba-session-meta"><span class="tba-badge blue">Scheduled</span><span>2 students</span></div>
+                          </div>
+                        </div>
                       </div>
                     </section>
-                    <section class="device-screen" data-screen="tba-2" aria-label="Multi-venue view">
-                      <div class="screen-header"><strong>Venues Overview</strong><span>Live</span></div>
-                      <div class="venue-cards">
-                        <div class="venue-card"><strong>Shah Alam HQ</strong><span>4 courts</span><small>3 active</small></div>
-                        <div class="venue-card"><strong>Subang</strong><span>2 courts</span><small>1 active</small></div>
-                        <div class="venue-card"><strong>PJ Center</strong><span>3 courts</span><small>2 active</small></div>
+                    <section class="device-screen" data-screen="tba-2" aria-label="Students">
+                      <div class="screen-header"><strong>Students</strong><span>48 active</span></div>
+                      <div class="tba-student-table">
+                        <div class="tba-student-row">
+                          <div class="tba-avatar">AR</div>
+                          <div class="tba-student-info"><b>Ahmad Razif</b><small>Advanced · Since Jan 2025</small></div>
+                          <div class="tba-attendance"><span class="tba-att-bar" style="--fill:92%"></span><small>92%</small></div>
+                        </div>
+                        <div class="tba-student-row">
+                          <div class="tba-avatar">ML</div>
+                          <div class="tba-student-info"><b>Mei Lin Chong</b><small>Intermediate · Since Mar 2025</small></div>
+                          <div class="tba-attendance"><span class="tba-att-bar" style="--fill:87%"></span><small>87%</small></div>
+                        </div>
+                        <div class="tba-student-row">
+                          <div class="tba-avatar">RK</div>
+                          <div class="tba-student-info"><b>Raj Kumar</b><small>Elite · Since Sep 2024</small></div>
+                          <div class="tba-attendance"><span class="tba-att-bar" style="--fill:96%"></span><small>96%</small></div>
+                        </div>
+                        <div class="tba-student-row">
+                          <div class="tba-avatar">NS</div>
+                          <div class="tba-student-info"><b>Nur Sabrina</b><small>Beginner · Since Jan 2026</small></div>
+                          <div class="tba-attendance"><span class="tba-att-bar" style="--fill:78%"></span><small>78%</small></div>
+                        </div>
                       </div>
                     </section>
                   </div>
