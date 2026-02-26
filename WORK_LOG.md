@@ -10,3 +10,4 @@
 [2026-02-26 14:58] [Sonnet] Updated index.html — replaced inline SVG logos with img tags for new logo.jpg in header and footer
 [2026-02-26 15:04] [Sonnet] Fixed hero visibility in styles.css — added .hero .reveal override. Reverted logo to JPG in index.html. Anonymized client names.
 [2026-02-26 15:06] [Sonnet] Anonymized remaining product name references in index.html
+[2026-02-26 15:06] [Sonnet] Enlarged logo in header (44px) and footer (52px) in index.html
