@@ -47,10 +47,11 @@
   --ink-4:     #475065;
 
   /* Effects */
-  --glow-cyan:   0 0 40px rgba(47, 230, 224, 0.35);
-  --glow-indigo: 0 0 50px rgba(91, 108, 255, 0.40);
-  --grad-accent: linear-gradient(115deg, var(--cyan) 0%, var(--indigo) 58%, var(--violet) 100%);
-  --grad-text:   linear-gradient(110deg, #d7fffd 0%, var(--cyan-soft) 28%, var(--indigo-2) 72%, #c5cbff 100%);
+  --glow-cyan:   0 0 28px rgba(59, 130, 246, 0.22);
+  --glow-indigo: 0 0 36px rgba(91, 108, 255, 0.26);
+  /* Refined: blue→indigo, no neon-cyan/violet rainbow */
+  --grad-accent: linear-gradient(120deg, #3b82f6 0%, var(--indigo) 100%);
+  --grad-text:   linear-gradient(110deg, #dbe4ff 0%, #8ea2ff 55%, #c5cbff 100%);
 
   --radius:   18px;
   --radius-sm:12px;
@@ -82,8 +83,8 @@ body.menu-open { overflow: hidden; }
   inset: -20vmax;
   z-index: 0;
   pointer-events: none;
-  filter: blur(60px) saturate(135%);
-  opacity: 0.78;
+  filter: blur(70px) saturate(108%);
+  opacity: 0.42;
 }
 .aurora .blob {
   position: absolute;
@@ -91,10 +92,10 @@ body.menu-open { overflow: hidden; }
   mix-blend-mode: screen;
   will-change: transform;
 }
-.aurora .b1 { width: 52vmax; height: 52vmax; left: -8vmax;  top: -6vmax;  background: radial-gradient(circle at 30% 30%, rgba(47,230,224,.55), transparent 62%); animation: drift1 26s var(--ease) infinite; }
-.aurora .b2 { width: 46vmax; height: 46vmax; right: -10vmax; top: -4vmax;  background: radial-gradient(circle at 60% 40%, rgba(91,108,255,.60), transparent 62%); animation: drift2 32s var(--ease) infinite; }
-.aurora .b3 { width: 40vmax; height: 40vmax; left: 22vmax;   top: 18vmax;  background: radial-gradient(circle at 50% 50%, rgba(139,92,255,.42), transparent 60%); animation: drift3 38s var(--ease) infinite; }
-.aurora .b4 { width: 34vmax; height: 34vmax; right: 8vmax;   top: 30vmax;  background: radial-gradient(circle at 50% 50%, rgba(52,227,160,.30), transparent 60%); animation: drift1 30s var(--ease) infinite reverse; }
+.aurora .b1 { width: 52vmax; height: 52vmax; left: -8vmax;  top: -6vmax;  background: radial-gradient(circle at 30% 30%, rgba(59,130,246,.30), transparent 62%); animation: drift1 26s var(--ease) infinite; }
+.aurora .b2 { width: 46vmax; height: 46vmax; right: -10vmax; top: -4vmax;  background: radial-gradient(circle at 60% 40%, rgba(91,108,255,.34), transparent 62%); animation: drift2 32s var(--ease) infinite; }
+.aurora .b3 { width: 40vmax; height: 40vmax; left: 22vmax;   top: 18vmax;  background: radial-gradient(circle at 50% 50%, rgba(79,110,247,.20), transparent 60%); animation: drift3 38s var(--ease) infinite; }
+.aurora .b4 { width: 34vmax; height: 34vmax; right: 8vmax;   top: 30vmax;  background: radial-gradient(circle at 50% 50%, rgba(59,130,246,.14), transparent 60%); animation: drift1 30s var(--ease) infinite reverse; }
 
 @keyframes drift1 { 0%,100%{ transform: translate(0,0) scale(1);} 50%{ transform: translate(6vmax,4vmax) scale(1.12);} }
 @keyframes drift2 { 0%,100%{ transform: translate(0,0) scale(1);} 50%{ transform: translate(-5vmax,5vmax) scale(1.08);} }
