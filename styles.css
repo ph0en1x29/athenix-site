@@ -2269,3 +2269,86 @@ body::before {
     font-size: 13px;
   }
 }
+
+/* ============================================================
+   FieldPro — embedded live demo (athenixtech.com/fieldpro-demo)
+   ============================================================ */
+.live-demo {
+  margin-top: clamp(3rem, 6vw, 5rem);
+}
+
+.live-demo-head {
+  max-width: 660px;
+  margin: 0 auto 1.75rem;
+  text-align: center;
+}
+
+.live-demo-head h3 {
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin: 0 0 0.65rem;
+  color: var(--color-text);
+}
+
+.live-demo-head p {
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+  margin: 0 0 1.4rem;
+}
+
+.live-demo-head code {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 2px 7px;
+  font-size: 0.9em;
+  color: var(--color-text);
+}
+
+.live-demo-frame {
+  max-width: 1100px;
+  margin: 0 auto;
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--color-surface);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+.live-demo-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.ldb-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #3a3a3c;
+}
+.ldb-dot:nth-child(1) { background: #ff5f57; }
+.ldb-dot:nth-child(2) { background: #febc2e; }
+.ldb-dot:nth-child(3) { background: #28c840; }
+
+.live-demo-url {
+  margin-left: 12px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.live-demo-iframe {
+  display: block;
+  width: 100%;
+  height: min(72vh, 720px);
+  border: 0;
+  background: #ffffff;
+}
+
+@media (max-width: 700px) {
+  .live-demo-iframe {
+    height: 78vh;
+  }
+}
