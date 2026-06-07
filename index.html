@@ -9,6 +9,12 @@
 <meta property="og:title" content="Athenix Technologies — Software that runs your operations" />
 <meta property="og:description" content="Bespoke operational software for growing companies across Southeast Asia." />
 <meta property="og:type" content="website" />
+<meta property="og:image" content="https://www.athenixtech.com/og-cover.jpg" />
+<meta property="og:url" content="https://www.athenixtech.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Athenix Technologies — Software that runs your operations" />
+<meta name="twitter:description" content="Bespoke operational software for growing SMEs across Southeast Asia." />
+<meta name="twitter:image" content="https://www.athenixtech.com/og-cover.jpg" />
 <!-- Inline gradient "A" favicon (no external request) -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232fe6e0'/%3E%3Cstop offset='1' stop-color='%235b6cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='24' height='24' rx='6' fill='url(%23g)'/%3E%3Cpath d='M12 4L5 20h3l4-9 4 9h3L12 4z' fill='%2305070d'/%3E%3C/svg%3E" />
 
@@ -661,6 +667,143 @@ body.menu-open { overflow: hidden; }
 .value-card h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -.015em; margin-bottom: 12px; line-height: 1.25; }
 .value-card p { color: var(--ink-2); font-size: 14.5px; font-weight: 300; line-height: 1.6; }
 
+/* ---------- PROBLEM → SOLUTION (before/after) ---------- */
+.ba-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.ba-card {
+  background: linear-gradient(165deg, rgba(15,21,38,.7), rgba(9,13,23,.8));
+  border: 1px solid var(--hairline); border-radius: var(--radius); padding: 30px 28px;
+  position: relative; overflow: hidden;
+  transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+}
+.ba-card.after { border-color: var(--hairline-2); box-shadow: 0 24px 50px -30px rgba(0,0,0,.6), var(--glow-cyan); }
+.ba-card.after::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--grad-accent); opacity: .85; }
+.ba-head { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.ba-tag {
+  font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .12em;
+  text-transform: uppercase; padding: 5px 12px; border-radius: 100px; border: 1px solid var(--hairline-2);
+}
+.ba-tag.old { color: #ff9b9b; background: rgba(255,107,107,.07); border-color: rgba(255,107,107,.22); }
+.ba-tag.new { color: var(--cyan-soft); background: rgba(47,230,224,.06); }
+.ba-head h3 { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -.01em; }
+.ba-list { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+.ba-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14.5px; line-height: 1.5; }
+.ba-list.old li { color: var(--ink-3); }
+.ba-list.new li { color: var(--ink-2); }
+.ba-mark { flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center; margin-top: 1px; }
+.ba-mark svg { width: 12px; height: 12px; }
+.ba-mark.x { background: rgba(255,107,107,.10); border: 1px solid rgba(255,107,107,.28); }
+.ba-mark.check { background: rgba(52,227,160,.12); border: 1px solid rgba(52,227,160,.3); }
+.outcomes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 40px; }
+.outcome {
+  background: linear-gradient(165deg, rgba(20,27,46,.6), rgba(12,17,30,.7));
+  border: 1px solid var(--hairline); border-radius: 14px; padding: 24px 22px; text-align: left;
+  position: relative; overflow: hidden;
+}
+.outcome::after { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--grad-accent); opacity: .85; }
+.outcome .o-num { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(26px, 2.6vw, 34px); letter-spacing: -.02em; line-height: 1.05; }
+.outcome .o-num.grad { background: var(--grad-text); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.outcome .o-cap { color: var(--ink-2); font-size: 13px; margin-top: 9px; font-weight: 300; line-height: 1.5; }
+
+/* ---------- INDUSTRIES strip ---------- */
+.ind-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.ind-card {
+  background: linear-gradient(165deg, rgba(15,21,38,.6), rgba(9,13,23,.72));
+  border: 1px solid var(--hairline); border-radius: var(--radius-sm); padding: 22px 16px;
+  text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px;
+  transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+}
+.ind-card:hover { transform: translateY(-4px); border-color: var(--hairline-2); box-shadow: 0 20px 44px -28px rgba(0,0,0,.7), var(--glow-cyan); }
+.ind-ic {
+  width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  background: linear-gradient(160deg, rgba(47,230,224,.13), rgba(91,108,255,.1));
+  border: 1px solid var(--hairline-2);
+}
+.ind-ic svg { width: 21px; height: 21px; }
+.ind-card span { font-size: 13px; color: var(--ink-2); font-weight: 400; line-height: 1.35; }
+
+/* ---------- CASE STUDY ---------- */
+.case-study {
+  margin-top: 36px; border-radius: var(--radius);
+  background: linear-gradient(160deg, rgba(18,24,44,.8), rgba(10,14,26,.88));
+  border: 1px solid var(--hairline-2);
+  box-shadow: 0 40px 80px -44px rgba(0,0,0,.8), var(--glow-indigo);
+  overflow: hidden;
+}
+.case-head { padding: 30px 36px 22px; border-bottom: 1px solid var(--hairline); display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.case-emoji {
+  width: 56px; height: 56px; border-radius: 14px; flex-shrink: 0; display: grid; place-items: center; font-size: 27px;
+  background: linear-gradient(160deg, rgba(47,230,224,.12), rgba(91,108,255,.1)); border: 1px solid var(--hairline-2);
+}
+.case-head .ch-name { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 600; letter-spacing: -.01em; }
+.case-head .ch-sub { font-size: 13px; color: var(--ink-3); margin-top: 3px; }
+.case-head .trust-chip { margin-top: 0; margin-left: auto; align-self: center; }
+.case-cols { display: grid; grid-template-columns: repeat(3, 1fr); }
+.case-col { padding: 28px 32px; border-left: 1px solid var(--hairline); }
+.case-col:first-child { border-left: none; }
+.case-col .cc-step { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan-soft); margin-bottom: 12px; display: block; }
+.case-col h4 { font-family: 'Space Grotesk', sans-serif; font-size: 16px; font-weight: 600; letter-spacing: -.01em; margin-bottom: 10px; }
+.case-col p { color: var(--ink-2); font-size: 14px; font-weight: 300; line-height: 1.6; }
+.case-col.result { background: linear-gradient(165deg, rgba(20,27,46,.5), rgba(12,17,30,.55)); }
+.case-col.result h4 { color: var(--cyan-soft); }
+
+/* ---------- TESTIMONIAL GRID ---------- */
+.testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 22px; }
+.testi-mini {
+  background: linear-gradient(165deg, rgba(15,21,38,.7), rgba(9,13,23,.8));
+  border: 1px solid var(--hairline); border-radius: var(--radius); padding: 28px 28px 24px;
+  display: flex; flex-direction: column; gap: 18px;
+  transition: transform .4s var(--ease), border-color .4s var(--ease), box-shadow .4s var(--ease);
+}
+.testi-mini:hover { transform: translateY(-4px); border-color: var(--hairline-2); box-shadow: 0 24px 50px -30px rgba(0,0,0,.7), var(--glow-cyan); }
+.testi-mini .tm-quote { font-size: 15px; line-height: 1.6; color: var(--ink); font-weight: 300; }
+.testi-mini .attribution { margin-top: 0; }
+.testi-mini .attribution .av { width: 42px; height: 42px; font-size: 14px; }
+
+/* ---------- WHAT HAPPENS NEXT (numbered steps) ---------- */
+.next-steps { display: flex; flex-direction: column; gap: 14px; margin-top: 34px; }
+.next-step { display: flex; align-items: flex-start; gap: 16px; }
+.next-step .ns-num {
+  flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center;
+  font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 15px; color: #03110f;
+  background: var(--grad-accent); box-shadow: var(--glow-cyan);
+}
+.next-step .ns-body strong { display: block; font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 15px; color: var(--ink); margin-bottom: 3px; }
+.next-step .ns-body span { font-size: 13.5px; color: var(--ink-2); font-weight: 300; line-height: 1.5; }
+.btn-soft { padding: 13px 22px; color: var(--ink); background: rgba(124,160,255,.05); border: 1px solid var(--hairline-2); }
+.btn-soft:hover { transform: translateY(-2px); background: rgba(124,160,255,.10); border-color: rgba(124,160,255,.32); box-shadow: 0 0 24px rgba(47,230,224,.12); }
+.risk-line {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 10px 14px; margin-top: 26px;
+  font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-3);
+}
+.risk-line .rl-item { display: inline-flex; align-items: center; gap: 7px; }
+.risk-line .rl-item svg { width: 13px; height: 13px; flex-shrink: 0; }
+.risk-line .rl-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--ink-4); }
+
+/* ---------- FAQ accordion ---------- */
+.faq-list { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+.faq-item {
+  background: linear-gradient(165deg, rgba(15,21,38,.7), rgba(9,13,23,.8));
+  border: 1px solid var(--hairline); border-radius: var(--radius-sm); overflow: hidden;
+  transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+}
+.faq-item[open] { border-color: var(--hairline-2); box-shadow: 0 20px 44px -30px rgba(0,0,0,.6), var(--glow-cyan); }
+.faq-item summary {
+  list-style: none; cursor: pointer; padding: 22px 26px;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  font-family: 'Space Grotesk', sans-serif; font-size: 16.5px; font-weight: 600; letter-spacing: -.01em; color: var(--ink);
+  transition: color .25s var(--ease);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--cyan-soft); }
+.faq-item summary:focus-visible { outline: 2px solid var(--cyan); outline-offset: -3px; border-radius: var(--radius-sm); }
+.faq-icon { flex-shrink: 0; width: 26px; height: 26px; border-radius: 8px; display: grid; place-items: center; border: 1px solid var(--hairline-2); position: relative; transition: transform .35s var(--ease), background .3s var(--ease); }
+.faq-icon::before, .faq-icon::after { content: ""; position: absolute; background: var(--cyan-soft); border-radius: 2px; }
+.faq-icon::before { width: 11px; height: 2px; }
+.faq-icon::after { width: 2px; height: 11px; transition: transform .35s var(--ease), opacity .3s var(--ease); }
+.faq-item[open] .faq-icon { background: rgba(47,230,224,.1); }
+.faq-item[open] .faq-icon::after { transform: rotate(90deg); opacity: 0; }
+.faq-answer { padding: 0 26px 24px; color: var(--ink-2); font-size: 14.5px; font-weight: 300; line-height: 1.64; max-width: 720px; }
+
 /* ---------- CONTACT ---------- */
 .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
 .contact-aside .eyebrow { margin-bottom: 18px; }
@@ -752,6 +895,8 @@ body.menu-open { overflow: hidden; }
   .contact-layout { grid-template-columns: 1fr; gap: 40px; }
   .proc-steps { grid-template-columns: repeat(3, 1fr); gap: 36px 22px; }
   .proc-line { display: none; }
+  .ind-grid { grid-template-columns: repeat(3, 1fr); }
+  .outcomes { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 860px) {
   .wrap { padding: 0 24px; }
@@ -767,12 +912,24 @@ body.menu-open { overflow: hidden; }
   .stat:first-child { border-top: none; }
   .footer-top { flex-direction: column; }
   .section { padding: 72px 0; }
+  .ba-grid { grid-template-columns: 1fr; }
+  .ind-grid { grid-template-columns: repeat(2, 1fr); }
+  .case-cols { grid-template-columns: 1fr; }
+  .case-col { border-left: none; border-top: 1px solid var(--hairline); }
+  .case-col:first-child { border-top: none; }
+  .testi-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 620px) {
   .proc-steps { grid-template-columns: repeat(2, 1fr); }
   .feature-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
   .testimonial-card { padding: 36px 26px 32px; }
+  .outcomes { grid-template-columns: 1fr; }
+  .case-head { padding: 24px 24px 20px; }
+  .case-head .trust-chip { margin-left: 0; }
+  .case-col { padding: 24px; }
+  .faq-item summary { font-size: 15px; padding: 20px 22px; }
+  .faq-answer { padding: 0 22px 22px; }
 }
 @media (max-width: 540px) {
   .kpis { grid-template-columns: repeat(2, 1fr); }
@@ -821,6 +978,7 @@ body.menu-open { overflow: hidden; }
         <a href="#fieldpro">FieldPro</a>
         <a href="#capabilities">Capabilities</a>
         <a href="#why">Why Athenix</a>
+        <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -839,7 +997,8 @@ body.menu-open { overflow: hidden; }
     <a href="#fieldpro"><span>FieldPro</span><span class="mm-num">04</span></a>
     <a href="#capabilities"><span>Capabilities</span><span class="mm-num">05</span></a>
     <a href="#why"><span>Why Athenix</span><span class="mm-num">06</span></a>
-    <a href="#contact"><span>Contact</span><span class="mm-num">07</span></a>
+    <a href="#faq"><span>FAQ</span><span class="mm-num">07</span></a>
+    <a href="#contact"><span>Contact</span><span class="mm-num">08</span></a>
     <a href="#contact" class="btn btn-primary mm-cta">Start Your Project <span class="arrow" aria-hidden="true">→</span></a>
   </nav>
 
@@ -857,7 +1016,7 @@ body.menu-open { overflow: hidden; }
 
         <div class="hero-cta reveal" data-d="3">
           <a href="#contact" class="btn btn-primary">Start Your Project <span class="arrow" aria-hidden="true">→</span></a>
-          <a href="#fieldpro" class="btn btn-ghost">See it in action <span aria-hidden="true">›</span></a>
+          <a href="/fieldpro-demo/" target="_blank" rel="noopener" class="btn btn-ghost">Try the live demo <span aria-hidden="true">↗</span></a>
         </div>
 
         <div class="hero-trust reveal" data-d="4">
@@ -980,6 +1139,105 @@ body.menu-open { overflow: hidden; }
     </div>
   </section>
 
+  <!-- PROBLEM → SOLUTION -->
+  <section class="section" id="problem">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">// The problem</span>
+        <h2>Running operations on spreadsheets and WhatsApp?</h2>
+        <p>It works — until it doesn't. As you grow, the gaps cost you visibility, time, and cash. Here's the shift.</p>
+      </div>
+
+      <div class="ba-grid">
+        <article class="ba-card reveal" data-d="0">
+          <div class="ba-head">
+            <span class="ba-tag old">The old way</span>
+            <h3>Spreadsheets &amp; chat groups</h3>
+          </div>
+          <ul class="ba-list old">
+            <li><span class="ba-mark x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9b9b" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Jobs tracked across spreadsheets and WhatsApp threads.</li>
+            <li><span class="ba-mark x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9b9b" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Updates buried in chat — lost the moment the scroll moves on.</li>
+            <li><span class="ba-mark x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9b9b" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span>No real-time visibility into what's done, pending, or stuck.</li>
+            <li><span class="ba-mark x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9b9b" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Invoices lag days behind the work that's already finished.</li>
+            <li><span class="ba-mark x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9b9b" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Parts and stock levels are guesswork until something runs out.</li>
+            <li><span class="ba-mark x" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#ff9b9b" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg></span>Customer disputes with no photos, signatures, or proof of work.</li>
+          </ul>
+        </article>
+
+        <article class="ba-card after reveal" data-d="1">
+          <div class="ba-head">
+            <span class="ba-tag new">With FieldPro</span>
+            <h3>One live system</h3>
+          </div>
+          <ul class="ba-list new">
+            <li><span class="ba-mark check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span>One live system every role works from — office, warehouse, and field.</li>
+            <li><span class="ba-mark check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span>Real-time dashboards — see every job's status the moment it changes.</li>
+            <li><span class="ba-mark check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span>Finished jobs turn into invoices and quotations in one click.</li>
+            <li><span class="ba-mark check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span>Van and warehouse stock tracked live, with low-stock alerts.</li>
+            <li><span class="ba-mark check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span>Photos, signatures, and timestamps on every single job.</li>
+            <li><span class="ba-mark check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></span>A full audit trail — fewer disputes, cleaner books, real accountability.</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="outcomes">
+        <div class="outcome reveal" data-d="0">
+          <div class="o-num grad"><span class="count" data-to="8">0</span> wks</div>
+          <div class="o-cap">Typical concept → production for a platform like FieldPro.</div>
+        </div>
+        <div class="outcome reveal" data-d="1">
+          <div class="o-num grad">Same-day</div>
+          <div class="o-cap">Invoicing once a job is signed off — instead of days behind.</div>
+        </div>
+        <div class="outcome reveal" data-d="2">
+          <div class="o-num grad">Hours / week</div>
+          <div class="o-cap">Typically saved on admin once chasing updates stops.</div>
+        </div>
+        <div class="outcome reveal" data-d="3">
+          <div class="o-num grad">1 source<span style="font-size:.55em; color:var(--cyan-soft); -webkit-text-fill-color:var(--cyan-soft);"> of truth</span></div>
+          <div class="o-cap">Zero lost job sheets — every role sees the same live data.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR / INDUSTRIES -->
+  <section class="section" id="industries" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="section-tag">// Who it's for</span>
+        <h2>Built for operations that can't afford to lose track.</h2>
+      </div>
+
+      <div class="ind-grid">
+        <article class="ind-card reveal" data-d="0">
+          <span class="ind-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5ff3ee" stroke-width="1.7"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9.5 12l1.8 1.8 3.5-3.8"/></svg></span>
+          <span>Equipment rental &amp; field service</span>
+        </article>
+        <article class="ind-card reveal" data-d="1">
+          <span class="ind-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#7d8bff" stroke-width="1.7"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg></span>
+          <span>Logistics &amp; warehousing</span>
+        </article>
+        <article class="ind-card reveal" data-d="2">
+          <span class="ind-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="1.7"><path d="M4 21V9l6-3v3l6-3v3l4-2v14z"/><path d="M9 21v-4M14 21v-4"/></svg></span>
+          <span>Manufacturing</span>
+        </article>
+        <article class="ind-card reveal" data-d="3">
+          <span class="ind-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#8b5cff" stroke-width="1.7"><path d="M14 7l4 4-8 8H6v-4z"/><path d="M13 8l3 3"/><path d="M16 5l3 3"/></svg></span>
+          <span>Facilities &amp; maintenance</span>
+        </article>
+        <article class="ind-card reveal" data-d="4">
+          <span class="ind-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#5ff3ee" stroke-width="1.7"><path d="M12 4L2 9l10 5 10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span>
+          <span>Academies &amp; training</span>
+        </article>
+        <article class="ind-card reveal" data-d="5">
+          <span class="ind-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#7d8bff" stroke-width="1.7"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20v-1.5C3 16 5 15 9 15s6 1 6 3.5V20"/><path d="M15.5 20v-1c0-1.6 1-2.5 3.5-2.5s2.5 1 2.5 2.5V20"/></svg></span>
+          <span>Any ops-heavy SME</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- WHAT WE DO -->
   <section class="section" id="services">
     <div class="wrap">
@@ -1050,7 +1308,37 @@ body.menu-open { overflow: hidden; }
         </article>
       </div>
 
-      <figure class="testimonial-card reveal" data-d="2">
+      <!-- CASE STUDY -->
+      <article class="case-study reveal" data-d="2">
+        <div class="case-head">
+          <span class="case-emoji" aria-hidden="true">🏭</span>
+          <div>
+            <div class="ch-name">Industrial Equipment Company</div>
+            <div class="ch-sub">Heavy equipment rental &amp; field services · Malaysia</div>
+          </div>
+          <span class="trust-chip">Case study · FieldPro</span>
+        </div>
+        <div class="case-cols">
+          <div class="case-col">
+            <span class="cc-step">01 — Situation</span>
+            <h4>Operations run on memory</h4>
+            <p>Jobs lived in spreadsheets and WhatsApp groups. Leadership had no real-time view of the floor, technicians worked off ad-hoc messages, and invoicing trailed days behind completed work.</p>
+          </div>
+          <div class="case-col">
+            <span class="cc-step">02 — Solution</span>
+            <h4>One platform, every role</h4>
+            <p>We built FieldPro — jobs, fleet, and inventory in one system, a mobile app for field technicians, and role-based access for Admin, Supervisor, Technician, and Accountant. One source of truth, end to end.</p>
+          </div>
+          <div class="case-col result">
+            <span class="cc-step">03 — Result</span>
+            <h4>Live in 8 weeks</h4>
+            <p>A live operational dashboard shipped in 8 weeks. Technicians use it daily in the field, sign-off-to-invoice moved from days to same-day, and nothing falls through the cracks anymore.</p>
+          </div>
+        </div>
+      </article>
+
+      <!-- TESTIMONIALS -->
+      <figure class="testimonial-card reveal" data-d="0" style="margin-top:22px;">
         <blockquote class="quote">We went from spreadsheets and WhatsApp groups to a full operational dashboard in 8 weeks. Our technicians actually use it every day.</blockquote>
         <figcaption class="attribution">
           <span class="av" aria-hidden="true">FS</span>
@@ -1060,6 +1348,29 @@ body.menu-open { overflow: hidden; }
           </span>
         </figcaption>
       </figure>
+
+      <div class="testi-grid">
+        <figure class="testi-mini reveal" data-d="1">
+          <blockquote class="tm-quote">No more chasing job updates in chat. I open the dashboard and see exactly where every job stands.</blockquote>
+          <figcaption class="attribution">
+            <span class="av" aria-hidden="true">OL</span>
+            <span class="who">
+              <strong>Operations Lead</strong>
+              <span>Equipment rental, Malaysia</span>
+            </span>
+          </figcaption>
+        </figure>
+        <figure class="testi-mini reveal" data-d="2">
+          <blockquote class="tm-quote">Parts and van stock are finally accurate. The team logs everything on their phones, so the numbers actually match reality.</blockquote>
+          <figcaption class="attribution">
+            <span class="av" aria-hidden="true">WS</span>
+            <span class="who">
+              <strong>Workshop Supervisor</strong>
+              <span>Field services, Southeast Asia</span>
+            </span>
+          </figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -1356,6 +1667,43 @@ body.menu-open { overflow: hidden; }
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <span class="section-tag">// FAQ</span>
+        <h2>Questions, answered.</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item reveal" data-d="0">
+          <summary>Do we own the code and IP?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">Yes — it's yours. We build bespoke software that belongs to you, with no per-seat licensing and no lock-in. You keep the code, the data, and the intellectual property.</div>
+        </details>
+        <details class="faq-item reveal" data-d="0">
+          <summary>How long does it take, and what does it cost?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">A platform on the scale of FieldPro typically ships in around 8 weeks from concept to production. After a free scoping call we give you a clear, fixed-scope proposal — so you know the timeline and the price before any work begins.</div>
+        </details>
+        <details class="faq-item reveal" data-d="0">
+          <summary>Off-the-shelf SaaS vs. custom — why go custom?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">Off-the-shelf tools force your process to bend to their assumptions, and you pay more per seat every year. Custom software fits how you actually work, removes the workarounds, and scales with you instead of fighting you — and it's an asset you own outright.</div>
+        </details>
+        <details class="faq-item reveal" data-d="0">
+          <summary>We already have systems and spreadsheets — can you integrate or migrate our data?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">Yes. We integrate with the tools you keep and migrate the data you already have — customers, jobs, inventory, history — so you start on day one with your real information, not an empty system.</div>
+        </details>
+        <details class="faq-item reveal" data-d="0">
+          <summary>What about support after launch?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">Launch is the start, not the finish. We provide ongoing maintenance, optimization, and iteration — the same team that built it keeps improving it as your operation grows. One team, start to finish.</div>
+        </details>
+        <details class="faq-item reveal" data-d="0">
+          <summary>Is our data secure?<span class="faq-icon" aria-hidden="true"></span></summary>
+          <div class="faq-answer">Security is built in, not bolted on: row-level security so each user only reaches their own data, role-based access for every team member, and audit trails that record who changed what and when.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACT -->
   <section class="section" id="contact">
     <div class="wrap">
@@ -1363,14 +1711,40 @@ body.menu-open { overflow: hidden; }
         <div class="contact-aside reveal">
           <span class="eyebrow"><span class="dot"></span>Get in touch</span>
           <h2>Let's talk about your project.</h2>
-          <p class="lead">Tell us what you need. We'll reply within 24 hours with a clear, practical next step.</p>
+          <p class="lead">Tell us what you need. We'll reply within 24 hours with a clear, practical next step — no obligation.</p>
 
           <div class="contact-direct">
             <a class="contact-wa" href="https://wa.me/12678278480?text=Hi%20Athenix%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               WhatsApp us
             </a>
+            <a class="btn btn-soft" href="https://wa.me/12678278480?text=Hi%20Athenix%2C%20I%27d%20like%20a%20free%20ops%20review." target="_blank" rel="noopener" style="align-self:flex-start;">Book a free 30-min ops review <span aria-hidden="true">↗</span></a>
             <a class="contact-mail" href="mailto:hello@athenixtech.com">hello@athenixtech.com ›</a>
+          </div>
+
+          <div class="next-steps">
+            <div class="next-step">
+              <span class="ns-num" aria-hidden="true">1</span>
+              <div class="ns-body"><strong>We reply within 24 hours.</strong><span>A real person reads your message and gets back fast.</span></div>
+            </div>
+            <div class="next-step">
+              <span class="ns-num" aria-hidden="true">2</span>
+              <div class="ns-body"><strong>Free 30-min scoping call.</strong><span>We learn your operation and where the friction really is.</span></div>
+            </div>
+            <div class="next-step">
+              <span class="ns-num" aria-hidden="true">3</span>
+              <div class="ns-body"><strong>A clear, fixed-scope proposal.</strong><span>Timeline and price up front — no obligation to proceed.</span></div>
+            </div>
+          </div>
+
+          <div class="risk-line">
+            <span class="rl-item"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>You own the IP</span>
+            <span class="rl-sep" aria-hidden="true"></span>
+            <span class="rl-item"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Free scoping call</span>
+            <span class="rl-sep" aria-hidden="true"></span>
+            <span class="rl-item"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Fixed-scope proposals</span>
+            <span class="rl-sep" aria-hidden="true"></span>
+            <span class="rl-item"><svg viewBox="0 0 24 24" fill="none" stroke="#34e3a0" stroke-width="2.4" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Ongoing support after launch</span>
           </div>
         </div>
 
@@ -1428,6 +1802,7 @@ body.menu-open { overflow: hidden; }
           <a href="#fieldpro">FieldPro</a>
           <a href="#showcase-tba">Academy</a>
           <a href="#why">Why Athenix</a>
+          <a href="#faq">FAQ</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
